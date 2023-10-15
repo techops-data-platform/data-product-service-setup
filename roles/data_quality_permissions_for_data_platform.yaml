@@ -1,0 +1,32 @@
+title: Data Quality Task For Data Platform
+description: Custom role with permissions for executing data quality checks in data pipeline
+stage: GA
+includedPermissions:
+- dataplex.operations.get
+- dataplex.tasks.create
+- dataplex.tasks.get
+- dataproc.agents.create
+- dataproc.agents.delete
+- dataproc.agents.get
+- dataproc.agents.list
+- dataproc.agents.update
+- dataproc.tasks.lease
+- dataproc.tasks.listInvalidatedLeases
+- dataproc.tasks.reportStatus
+- logging.logEntries.create
+- monitoring.metricDescriptors.create
+- monitoring.metricDescriptors.get
+- monitoring.metricDescriptors.list
+- monitoring.monitoredResourceDescriptors.get
+- monitoring.monitoredResourceDescriptors.list
+- monitoring.timeSeries.create
+- storage.buckets.get
+- storage.objects.create
+- storage.objects.delete
+- storage.objects.get
+- storage.objects.getIamPolicy
+- storage.objects.list
+- storage.objects.update
+- iam.serviceAccounts.actAs
+- monitoring.timeSeries.list
+- serviceusage.services.use

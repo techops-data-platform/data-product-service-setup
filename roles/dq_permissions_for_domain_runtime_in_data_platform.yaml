@@ -1,0 +1,10 @@
+title: Data Quality Task For Domain Runtime in Data Platform
+description: Custom role with permissions for executing data quality checks in data pipeline
+stage: GA
+includedPermissions:
+- dataplex.tasks.create
+- serviceusage.services.use
+- dataplex.operations.get
+- dataplex.tasks.get
+- dataplex.tasks.run
+- iam.serviceAccounts.actAs

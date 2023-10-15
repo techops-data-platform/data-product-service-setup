@@ -1,0 +1,6 @@
+title: Data Product Artifact Registry Reader
+description: Custom role for reading artifacts from the artifacts registry
+stage: GA
+includedPermissions:
+- artifactregistry.repositories.downloadArtifacts
+

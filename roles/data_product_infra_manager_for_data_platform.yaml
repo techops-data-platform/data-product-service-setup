@@ -1,0 +1,22 @@
+title: Data Product Infra Manager For Data Platform
+description: Custom role with permissions for managing infra life cycle management for Data Product service
+stage: GA
+includedPermissions:
+- cloudsql.instances.connect
+- cloudsql.instances.get
+- iam.serviceAccounts.actAs
+- logging.logEntries.create
+- secretmanager.versions.access
+- storage.objects.create
+- storage.objects.delete
+- storage.objects.get
+- storage.objects.getIamPolicy
+- storage.objects.list
+- cloudtasks.tasks.create
+- storage.buckets.create
+- storage.buckets.delete
+- storage.buckets.get
+- storage.buckets.list
+- storage.buckets.update
+- storage.objects.update
+

@@ -1,0 +1,15 @@
+title: Data Quality Task
+description: Custom role with permissions for executing data quality checks in data pipeline in Domain GCP project.
+stage: GA
+includedPermissions:
+- bigquery.datasets.get
+- bigquery.datasets.getIamPolicy
+- bigquery.tables.create
+- bigquery.tables.delete
+- bigquery.tables.get
+- bigquery.tables.getData
+- bigquery.tables.list
+- bigquery.tables.update
+- bigquery.tables.updateData
+- bigquery.jobs.create
+- serviceusage.services.use
