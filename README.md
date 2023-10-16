@@ -10,36 +10,37 @@ However, to effectively use a self-serve data platform, users must have certain 
 
 ## Prerequisites
 
-_**Note** : If you are a new team, please follow all the below steps to create a new GCP project and set up the prerequisites for data product creation. If your team has already used Data Product Service you only need to follow the steps 9 to 18._
+_**Note** : If you are a new team, please follow **all the below steps** to create a new GCP project and set up the prerequisites for data product creation. If your team has already used Data Product Service, you only need to follow the **steps 9 to 18**._
 
 1. Refer [here](GCP%20Project%20setup.md) to create new GCP projects or map any existing GCP projects for maintaining the data products.
 
 
-2. Enable audit logs for Admin Read, Admin Write, Data Read, Data Write in default audit configuration, so that it will be enabled for all services
+2. Enable audit logs with Admin Read, Admin Write, Data Read, Data Write in default audit configuration, so that it will be enabled for all services
 
    ![Enable audit logs ](./imgaes/enable-audit-logs.png "enable audit logs")
 
 
-3. Create default network using the command  `gcloud compute networks create default`
+3. Create default network using the command  `gcloud compute networks create default` in gcloud console
 
 
-4. Enable the following APIs in the GCP project
+4. Enable the following APIs in your GCP project by visting corresponding pages
    - Composer API 
    - Bigquery API 
    - Secret Manager API 
    - Cloud run API ( For Events Only )
+   - Dataplex API ( For discoverability )
 
 
-5. Create google groups for the team, to get access from other teams. Refer [here](https://docs.google.com/document/d/1gUEEfJv3Cf3Fm2PI5KehHqz38Yorcwm_vSWnPRl-tPA/edit#heading=h.x0da5xjqjxvx)
+5. Create google groups for the team, to collaborate and communicate with platform or other teams. Refer [here](https://docs.google.com/document/d/1gUEEfJv3Cf3Fm2PI5KehHqz38Yorcwm_vSWnPRl-tPA/edit#heading=h.x0da5xjqjxvx)
 
 
-6. Add Essential Contacts in the GCP project, add their TL as owners (Task for Data Platforms)
+6. **[Task for Data Platform]** Add Essential Contacts for the GCP project, add their TL as owners
 
 
-7. Update the project details in the [Data Platform Master Metadata sheet](https://docs.google.com/spreadsheets/d/1PGATOdSCyNMEZ5maDSKLptEIXpWIxJcTdIIFcktlrTU/edit#gid=1645119921) (Task for Data Platforms)
+7. **[Task for Data Platform]** Update the project details in the [Data Platform Master Metadata sheet](https://docs.google.com/spreadsheets/d/1PGATOdSCyNMEZ5maDSKLptEIXpWIxJcTdIIFcktlrTU/edit#gid=1645119921)
 
 
-8. Add the project into the existing SCC Findings filter for dev, preprod and prod and update the URL in Data Platform - Master Metadata Manager (Task for Data Platforms) 
+8. **[Task for Data Platform]** Add the project into the existing SCC Findings filter for dev, preprod and prod and update the URL in [Data Platform Master Metadata sheet](https://docs.google.com/spreadsheets/d/1PGATOdSCyNMEZ5maDSKLptEIXpWIxJcTdIIFcktlrTU/edit#gid=1645119921)
 
 
 9. Create custom role [Data Pipeline Runtime](./roles/data_pipeline_runtime.yaml)
@@ -53,8 +54,8 @@ function runtime_service_account() {
    local project_id="$2"
    
    team_name=${team_name:0:27}
-   team_name=${team_name%-}
-   team_name=${team_name#-}
+   team_name=${team_name%-} #removing trailing hypens
+   team_name=${team_name#-} #removing leading hypens
    
    runtime_service_account="${team_name}-dp@${project_id}.iam.gserviceaccount.com"
    
@@ -67,24 +68,23 @@ PROJECT_ID='your-gcp-project-id';
 runtime_service_account $TEAM_NAME $PROJECT_ID
 ```
 
-11. Attach the custom role [Data Pipeline Runtime](./roles/data_pipeline_runtime.yaml) and GCP provided role Cloud Run Invoker (only for events) created to the service account
+11. Attach the custom role [Data Pipeline Runtime](./roles/data_pipeline_runtime.yaml) and GCP provided default role **Cloud Run Invoker** (only for events) to the created service account
 
 
-12. Add {team_name}-dp@{project_id}.iam.gserviceaccount.com to data Products Artifacts Consumer google group. (Task for Data Platforms)
-
+12. **[Task for Data Platform]** Add `{team_name}-dp@{project_id}.iam.gserviceaccount.com` to data Products Artifacts Consumer google group.
 
 13. Create custom roles [Data Product Infra Manager](./roles/data_product_infra_manager.yaml) and [DataQualityTask](./roles/data_quality_permissions.yaml)
 
 
-14. Add the service account data-product-infra-management@tw-data-platform.iam.gserviceaccount.com to IAM in domain team GCP project and attach the custom role [Data Product Infra Manager](./roles/data_product_infra_manager.yaml) and [DataQualityTask](./roles/data_quality_permissions.yaml)
+14. Add the service account data-product-infra-management@tw-data-platform.iam.gserviceaccount.com to IAM in your(domain team) GCP project and attach the custom roles **Data Product Infra Manager** and **DataQualityTask**
 
 
-15. Add Data Quality Task For Domain Runtime in Data Platform to {team_name}-dp@{project_id}.iam.gserviceaccount.com in platform gcp project  
+15. Add **Data Quality Task For Domain Runtime in Data Platform** to `{team_name}-dp@{project_id}.iam.gserviceaccount.com` in platform gcp project  
 
-more information refer table 
+for more information refer table 
 
 
-16.. Create two Secrets for storing client id and client secret if the mode is of API batch
+16. Create two Secrets for storing client id and client secret if the mode is of **API**
 
 **Naming conventions:**
 
@@ -94,15 +94,14 @@ more information refer table
 
 
 17. Create two secrets as follows for storing client id and client secret for data quality notification.
-Note: Please ensure that email.send scope is enabled for the consumer app for Notification Service API.
+
+_**Note**: Please ensure that `email.send` scope is enabled for the consumer app for Notification Service API._
 
 **For Client ID** : `data_product_notifications_client_id`
+
 **For Client Secret** : `data_product_notifications_client_secret`
 
 
-18. Add the project ids, env and neo team id in the below prod spreadsheet as well in dev spreadsheet (Task for Data Platforms)
+18. **[Task for Data Platform]** Add the project ids, env and neo team id in the prod spreadsheet as well in dev spreadsheet for mapping the teams and thier projects owned by them
 
-Refer the [Data Platform Service User Guide](https://docs.google.com/document/d/1SCilUuhdmnoZDz4s_pgXKcSiyN8KuQzlJlt5yX5VF1A/edit#heading=h.d3orwc343s1r) for more details
-
-
-
+Refer the [Data Platform Service User Guide](https://docs.google.com/document/d/1SCilUuhdmnoZDz4s_pgXKcSiyN8KuQzlJlt5yX5VF1A) for more details
