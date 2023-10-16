@@ -7,9 +7,9 @@ Send a [helpdesk](mailto:data-platform-support@thoughtworks.com) ticket to creat
 
 Data program team will create a GCP project and will apply for billing.
 
-Once approved for billing, the data platform shall set up the [prerequisites](https://docs.google.com/document/d/149ClptOuxJqkY1hgKSklNo3frWgrBBAvgYKo7tbJ1pk). And you will be notified in the ticket to continue to the next steps.
+Once approved for billing, the data platform and your team will collaborate to set up the [prerequisites](README.md). And you will be notified in the ticket to continue with the next steps.
 
-
+<br>
 <table>
   <tr>
    <td><p style="text-align: right">
@@ -40,14 +40,13 @@ Kindly create GCP projects for setting up our new data product in the data platf
    </td>
   </tr>
 </table>
-
-
+<br>
 
 ### Request to map already existing GCP project
 
-Send a [helpdesk](mailto:data-platform-support@thoughtworks.com) ticket to map already existing GCP projects along with your squad name and team name in the ticket.
+Send a [helpdesk](mailto:data-platform-support@thoughtworks.com) ticket along with your team name and project Id to map the already existing GCP projects.
 
-Data program team will do the setup [prerequisites](https://docs.google.com/document/d/149ClptOuxJqkY1hgKSklNo3frWgrBBAvgYKo7tbJ1pk) and you will be notified in the ticket to continue to the next steps.
+Data program team and your team will collaborate to setup [prerequisites](README.md) and you will be notified in the ticket to continue with the next steps.
 
 
 <table>
@@ -82,5 +81,3 @@ Kindly set up the prerequisite for setting up our data product in the data platf
    </td>
   </tr>
 </table>
-
-
