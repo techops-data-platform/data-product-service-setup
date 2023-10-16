@@ -4,3 +4,5 @@ stage: GA
 includedPermissions:
 - artifactregistry.repositories.downloadArtifacts
 
+# Run the below command in Gcloud to create the custom role
+# gcloud iam roles create DataProductArtifactRegistryReader --project=<gcp-project-d> --file=data_product_artifact_registry_reader.yaml

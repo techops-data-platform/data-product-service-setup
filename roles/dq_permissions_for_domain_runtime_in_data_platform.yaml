@@ -8,3 +8,6 @@ includedPermissions:
 - dataplex.tasks.get
 - dataplex.tasks.run
 - iam.serviceAccounts.actAs
+
+# Run the below command in Gcloud to create the custom role
+# gcloud iam roles create DataQualityTaskForDomainRuntimeInDataPlatform --project=<gcp-project-d> --file=dq_permissions_for_domain_runtime_in_data_platform.yaml

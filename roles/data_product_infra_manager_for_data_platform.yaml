@@ -20,3 +20,5 @@ includedPermissions:
 - storage.buckets.update
 - storage.objects.update
 
+# Run the below command in Gcloud to create the custom role
+# gcloud iam roles create DataProductInfraManagerForDataPlatform --project=<gcp-project-d> --file=data_product_infra_manager_for_data_platform.yaml

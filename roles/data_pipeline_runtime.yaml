@@ -73,3 +73,5 @@ includedPermissions:
 - container.clusters.getCredentials
 - container.clusters.update
 
+# Run the below command in Gcloud to create the custom role
+# gcloud iam roles create DataPipelineRuntime --project=<gcp-project-d> --file=data_pipeline_runtime.yaml

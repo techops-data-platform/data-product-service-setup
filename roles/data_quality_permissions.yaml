@@ -13,3 +13,6 @@ includedPermissions:
 - bigquery.tables.updateData
 - bigquery.jobs.create
 - serviceusage.services.use
+
+# Run the below command in Gcloud to create the custom role
+# gcloud iam roles create DataQualityTask --project=<gcp-project-d> --file=data_quality_permissions.yaml
