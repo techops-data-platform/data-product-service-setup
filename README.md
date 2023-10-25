@@ -79,7 +79,7 @@ runtime_service_account $TEAM_NAME $PROJECT_ID
 14. Add the service account data-product-infra-management@tw-data-platform.iam.gserviceaccount.com to IAM in your(domain team) GCP project and attach the custom roles **Data Product Infra Manager** and **DataQualityTask**
 
 
-15. Add **Data Quality Task For Domain Runtime in Data Platform** to `{team_name}-dp@{project_id}.iam.gserviceaccount.com` in platform gcp project  
+15. **[Task for Data Platform]** Add **Data Quality Task For Domain Runtime in Data Platform** to `{team_name}-dp@{project_id}.iam.gserviceaccount.com` in platform gcp project  
 
 for more information refer table 
 
